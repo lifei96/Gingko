@@ -2,6 +2,8 @@ from warcio.archiveiterator import ArchiveIterator
 import boto3
 import botocore
 import csv
+import pymysql
+import pymysql.cursors
 
 def getSetOfSites(filename):
     result = set()
@@ -37,19 +39,56 @@ def loadSiteList(csv_path):
             result.append(row[0].lower())
     return result
 
-def matchSite(cite_list, a_url):
+def matchSite(site_list, a_url):
     # return the matching site in the list (if found)
     # return None otherwise
     a_url = a_url.lower()
-    for c in cite_list:
+    for c in site_list:
         if c in a_url:
             return c
     return None
 
-def storeInSQL():
-    # TBD
-    pass
+def storeInSQL(connection, site, http_headers, rec_headers, is_fake, raw_html):
+    """CREATE TABLE `web_pages`(
+        `site` TEXT,
+        `is_fake` INT,
+        `http_headers` MEDIUMTEXT,
+        `rec_headers` MEDIUMTEXT,
+        `html` MEDIUMTEXT
+    );
+    """
+    print(site)
+    with connection.cursor() as cursor:
+        sql = "INSERT INTO `web_pages` VALUES (%s, %s, %s, %s, %s)"
+        http_headers_str = str(http_headers)
+        rec_headers_str = str(rec_headers)
+        cursor.execute(sql, (site, is_fake, http_headers_str, rec_headers_str, raw_html))
+    connection.commit()
 
-def handleOneSegment(warc_file_path):
-    # TBD
-    pass
+def handleOneSegment(warc_file_path, site_list, is_fake=1):
+    connection = pymysql.connect(host='localhost',
+                                 port=8889,
+                                 user='root',
+                                 password='root',
+                                 db='gingko',
+                                 cursorclass=pymysql.cursors.DictCursor)
+    with open(warc_file_path, 'rb') as f:
+        for record in ArchiveIterator(f):
+            if record.rec_type == 'response':
+                headers = record.__dict__['http_headers'].headers
+                content_type = ""
+                for h in headers:
+                    if h[0] == 'Content-Type':
+                        content_type = h[1]
+                        break
+                if not content_type.startswith("text/html"):
+                    continue
+                html = record.content_stream().read().decode("cp437")
+                rec_headers = record.__dict__['rec_headers'].headers
+                for h in rec_headers:
+                    if h[0] == 'WARC-Target-URI':
+                        if h[1].startswith("http://") or h[1].startswith("https://"):
+                            site = matchSite(site_list, h[1])
+                            if site:
+                                storeInSQL(connection, site, headers, rec_headers, is_fake, html)
+    connection.close()
