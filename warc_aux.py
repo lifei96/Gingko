@@ -1,4 +1,5 @@
 from warcio.archiveiterator import ArchiveIterator
+import os
 import boto3
 import botocore
 import csv
@@ -92,3 +93,16 @@ def handleOneSegment(warc_file_path, site_list, is_fake=1):
                             if site:
                                 storeInSQL(connection, site, headers, rec_headers, is_fake, html)
     connection.close()
+
+def handleOneMonth(paths_filepath, site_list, is_fake=1):
+    f = open(paths_filepath)
+    lines = f.readlines()
+    f.close()
+    for line in lines:
+        l = line[:-1]
+        print(l)
+        downloadSegment(remote_path=l, save_path="./current.warc.gz")
+        print("(downloaded)")
+        handleOneSegment("./current.warc.gz", site_list, is_fake)
+        os.remove("./current.warc.gz")
+
