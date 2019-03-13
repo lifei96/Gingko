@@ -4,7 +4,13 @@ import html2text
 
 def get_text(html):
     '''Extracts text from html.'''
-    return html2text.html2text(html)
+    h2t = html2text.HTML2Text()
+    h2t.no_wrap_links = True
+    h2t.ignore_links = True
+    h2t.ignore_tables = True
+    h2t.ignore_images = True
+    h2t.ignore_emphasis = True
+    return h2t.handle(html)
 
 
 def get_reading_level(html):
