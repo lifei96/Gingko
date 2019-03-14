@@ -6,3 +6,5 @@ Larger dataset in SQL format: https://drive.google.com/file/d/1ebdN6rQYocJof_cKp
 spell_checker.py    get_spell_score(html)
 
 reading_level.py    get_reading_level(html)
+
+yd_social.py    social_media_score(html)    citation_score(html_page)
