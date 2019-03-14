@@ -12,10 +12,10 @@ yd_social.py    social_media_score(html)    citation_score(html_page)
 
 ## Text Extractor
 * API:
-  * te = TextExtractor(url, local)
-  * te.getText()
-  url --> string
-  local --> default=True, for online sites, fill in with False.
+  > te = TextExtractor(url, local)
+  > te.getText()
+  `url`: string
+  `local`: default=True, for online sites, fill in with False.
 
 ```
     # Online request example
