@@ -29,3 +29,20 @@ yd_social.py    social_media_score(html)    citation_score(html_page)
     te = TextExtractor(dir)
     print(te.getText())
    ```
+
+## Plot Density
+* API:
+  * `from plot_density import *`
+    `plot_hist(data, hist=True, kde=False)`
+    
+## Sentimental Analysis
+* API:
+  * `sentiment_analysis(text, full_score=False)`
+* For tests, run `sentiment.py` directly or use
+  * ```
+    print('# ------------ Full sentiment analysis test ------------ #')
+    database_test_sentiment_analysis_full()
+
+    print('# -------- Single score sentiment analysis test -------- #')
+    database_test_sentiment_analysis()
+    ```
