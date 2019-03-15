@@ -32,8 +32,10 @@ yd_social.py    social_media_score(html)    citation_score(html_page)
 
 ## Plot Density
 * API:
-  * `from plot_density import *`
-    `plot_hist(data, hist=True, kde=False)`
+  * ```
+    from plot_density import *
+    plot_hist(data, hist=True, kde=False)
+    ```
     
 ## Sentimental Analysis
 * API:
