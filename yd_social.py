@@ -28,7 +28,8 @@ def secure_link_ratio(links):
     for link in links:
         if "https:" in link:
             count += 1
-
+    if len(links) == 0:
+        return 0.0
     return float(count/len(links))
 
 def good_reference_ratio(links):
@@ -36,7 +37,8 @@ def good_reference_ratio(links):
     for link in links:
         if link in good_references:
             count += 1
-
+    if len(links) == 0:
+        return 0.0
     return float(count / len(links))
 
 def social_media_score(html_page):
