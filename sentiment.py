@@ -4,7 +4,7 @@ import pymysql
 import pymysql.cursors
 
 
-def sentiment_analysis(url, local, full_score=False):
+def sentiment_analysis(url, local=False, full_score=False):
     te = TextExtractor(url, local)
     text = te.getText()
     sia = SIA()
