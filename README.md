@@ -39,10 +39,7 @@ yd_social.py    social_media_score(html)    citation_score(html_page)
     
 ## Sentimental Analysis
 * API:
-  * `sentiment_analysis(url, local=False, full_score=False)`
-* Example:
-  * `sentiment_analysis('www.google.com')`
-  * `sentiment_analysis('./some_cache.html', local=True)`
+  * `sentiment_analysis(text, full_score=False)`
 * For tests, run `sentiment.py` directly or use
   * ```
     print('# ------------ Full sentiment analysis test ------------ #')
