@@ -4,7 +4,8 @@ import pymysql
 import pymysql.cursors
 
 
-def sentiment_analysis(text, full_score=False):
+def sentiment_analysis(url, full_score=False):
+    text = te.getText()
     sia = SIA()
     score = sia.polarity_scores(text)
     if full_score:
