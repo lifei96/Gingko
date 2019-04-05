@@ -45,7 +45,7 @@ def matchSite(site_list, a_url):
     # return None otherwise
     a_url = a_url.lower()
     for c in site_list:
-        if c in a_url:
+        if c.lower() in a_url:
             return c
     return None
 
