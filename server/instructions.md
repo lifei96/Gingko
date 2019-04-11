@@ -19,3 +19,8 @@ In case of any problems, more detailed documentations can be found at
 * [beautifulsoup4](https://www.crummy.com/software/BeautifulSoup/bs4/doc/)
 
 ## Sample
+```
+from preproc import *
+html = 'some raw html string'
+feature_vec = preproc(html)
+```
