@@ -180,7 +180,7 @@
       }
     }
     const barheight = 60;
-    let width = 800;
+    let width = 900;
     let height = data.length * barheight;
     margin = {top: 0, right: 20, bottom: 30, left: 80};
     let svg = d3.select("#bar1").append("svg")
@@ -208,7 +208,7 @@
     key.enter()
             .append("text")
             .attr("class","key")
-            .attr("x", -30)
+            .attr("x", -20)
             .attr("y", function(d,i) {return y(d.id) })
             .attr('dy',30).attr("text-anchor", "end")
             .style('font-family', 'Lato')
