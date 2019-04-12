@@ -18,29 +18,7 @@ def search():
         json object of credibility score and its breakdowns
     """
     searchUrl = request.args.get('websiteAddress')
-    print(searchUrl)
-    if searchUrl == 'https://www.huffpost.com/entry/michelle-obama-pink-suit_n_5caf82f1e4b0ffefe3ad78f4':
-        fake_data = [
-            {"id": "Credibility", "score": 92},
-            {"id": "Number of Images", "score": 88},
-            {"id": "Number of Ads", "score": 76},
-            {"id": "Reading Level", "score": 84},
-            {"id": "Social Network Links", "score": 71},
-            {"id": "Cross-site Citations", "score": 80},
-            {"id": "Sentiment", "score": 95},
-        ]
-    else:
-        fake_data = [
-            {"id": "Credibility", "score": 27},
-            {"id": "Number of Images", "score": 55},
-            {"id": "Number of Ads", "score": 20},
-            {"id": "Reading Level", "score": 15},
-            {"id": "Social Network Links", "score": 33},
-            {"id": "Cross-site Citations", "score": 23},
-            {"id": "Sentiment", "score": 19},
-        ]
-    # data = server.api.get_score(searchUrl)
-    data = fake_data
+    data = server.api.get_score(searchUrl)
 
 
     if len(data) == 0:
