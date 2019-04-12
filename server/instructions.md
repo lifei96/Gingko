@@ -10,6 +10,7 @@ pip install textstat
 pip install html2text 
 pip install nltk 
 pip install beautifulsoup4 
+pip install catboost
 ```
 
 In case of any problems, more detailed documentations can be found at 
