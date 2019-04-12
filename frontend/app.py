@@ -1,9 +1,8 @@
 from flask import Flask, render_template, request, jsonify, redirect, url_for
-
+import json
 import server.api
 
 app = Flask(__name__)
-
 
 @app.route('/')
 @app.route('/index')
@@ -20,15 +19,36 @@ def search():
     """
     searchUrl = request.args.get('websiteAddress')
     print(searchUrl)
+    if searchUrl == 'https://www.huffpost.com/entry/michelle-obama-pink-suit_n_5caf82f1e4b0ffefe3ad78f4':
+        fake_data = [
+            {"id": "Credibility", "score": 92},
+            {"id": "Number of Images", "score": 88},
+            {"id": "Number of Ads", "score": 76},
+            {"id": "Reading Level", "score": 84},
+            {"id": "Social Network Links", "score": 71},
+            {"id": "Cross-site Citations", "score": 80},
+            {"id": "Sentiment", "score": 95},
+        ]
+    else:
+        fake_data = [
+            {"id": "Credibility", "score": 27},
+            {"id": "Number of Images", "score": 55},
+            {"id": "Number of Ads", "score": 20},
+            {"id": "Reading Level", "score": 15},
+            {"id": "Social Network Links", "score": 33},
+            {"id": "Cross-site Citations", "score": 23},
+            {"id": "Sentiment", "score": 19},
+        ]
+    # data = server.api.get_score(searchUrl)
+    data = fake_data
 
-    data = server.api.get_score(searchUrl)
-    print(data)
 
     if len(data) == 0:
         return render_template('search.html', error = "Please enter a valid website")
 
-    credibility = 70
-    return render_template('search.html', data = searchUrl, credibility= credibility)
+    print(data)
+
+    return render_template('search.html', data = json.dumps(data))
 
 
 

@@ -162,9 +162,10 @@
     {"id":"Sentiment","score":52}
   ];
 
-  window.onload = display();
 
-  console.log('{{data}}');
+
+  console.log(JSON.parse('{{ data|safe }}'));
+  window.onload = display();
 
   function display() {
     if ("{{error}}" != null) {
@@ -172,13 +173,23 @@
     }
 
     $("#bar1").children().remove();
+    let arr = JSON.parse('{{ data|safe }}');
 
     let data = [];
-    for (const item of fullSet) {
+    for (const item of arr) {
+      if (item.id == "Credibility") {
+        document.getElementById("credibility score").innerHTML = item.score;
+        continue;
+      }
       if (document.getElementById(item.id).checked) {
         data.push(item);
       }
     }
+    if (data.length == 0) {
+      for (const item of fullSet)
+        if (document.getElementById(item.id).checked) data.push(item);
+    }
+
     const barheight = 60;
     let width = 900;
     let height = data.length * barheight;
