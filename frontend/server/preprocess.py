@@ -1,6 +1,6 @@
 import numpy as np
 
-from extractor import get_img_number, get_ads_number, get_reading_level,\
+from server.extractor import get_img_number, get_ads_number, get_reading_level,\
     social_media_score, citation_score, sentiment_analysis
 
 mean = np.array([0, 0, 0, 0, 0, 0])

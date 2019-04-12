@@ -4,7 +4,7 @@ import urllib3
 
 
 class Crawler(object):
-    URL_CACHE_DIR = 'url_cache'
+    URL_CACHE_DIR = 'server/url_cache'
 
     def __init__(self):
         self.http = urllib3.PoolManager()

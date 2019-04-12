@@ -1,5 +1,7 @@
 from flask import Flask, render_template, request, jsonify, redirect, url_for
-import os
+
+import server.api
+
 app = Flask(__name__)
 
 
@@ -19,8 +21,9 @@ def search():
     searchUrl = request.args.get('websiteAddress')
     print(searchUrl)
 
-    # data = get_json(searchTerm, resources, '30')
-    data = []
+    data = server.api.get_score(searchUrl)
+    print(data)
+
     if len(data) == 0:
         return render_template('search.html', error = "Please enter a valid website")
 
