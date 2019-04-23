@@ -3,7 +3,7 @@ import re
 
 def is_news(html):
 	news = re.findall('news', html)
-	if len(news) > 10:
+	if len(news) > 5:
 		return True
 	else:
 		return False
