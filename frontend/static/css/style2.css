@@ -1,0 +1,242 @@
+@import url('https://fonts.googleapis.com/css?family=Lato:200,300,400');
+
+body {
+    font-family: Lato;
+    background: white;
+    font-weight: 300;
+    margin: 0;
+    padding: 0;
+}
+.container.landing-page {
+    position: relative;
+    /*padding: 15px;*/
+    text-align: center;
+}
+.SearchBoxInput {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-color: transparent;
+    border: 0;
+    border-radius: 4px;
+    box-shadow: none;
+    box-sizing: border-box;
+    color: #3b3b3b;
+    font-size: 16px;
+    font-weight: bold;
+    height: 100%;
+    line-height: 20px;
+    outline: none;
+    padding: 20px;
+    width: 100%;
+}
+.searchIcon {
+    height: 20px;
+    width:20px;
+    fill: #3b3b3b;
+    margin-right: 15px;
+}
+.searchBar {
+    height:40px;
+    width:70%;
+    align-items:center;
+    background-color: #dcdcdc;
+    display: flex;
+    border-radius: 4px;
+    margin: auto;
+}
+
+a, a:hover, a:focus {
+    color: inherit;
+    text-decoration: none;
+    transition: all 0.3s;
+}
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: #3b3b3b;
+    font-weight: bold;
+    opacity: 1; /* Firefox */
+}
+.navbar {
+    padding: 15px 10px;
+    background: #fff;
+    border: none;
+    border-radius: 0;
+}
+
+.navbar-btn {
+    box-shadow: none;
+    outline: none !important;
+    border: none;
+}
+
+.line {
+    width: 100%;
+    height: 1px;
+    border-bottom: 1px dashed #ddd;
+    margin: 40px 0;
+}
+.navbar-default .navbar-nav>li>a {
+    color: #777;
+    font-size: 30px;
+}
+.myRightFooter {
+  float: right;
+  display: inline-block;
+  margin-left: 0.75rem;
+}
+
+
+.explanation {
+    text-align: center;
+    /*color: #ffffff;*/
+    line-height: 1;
+    font-weight: bold;
+    padding: 12px;
+    background: rgba(248, 236, 226, 0.9);
+    color: #4b2c0d;
+    border-radius: 5px;
+    box-shadow: 3px 3px 5px rgba(214,214,214, 0.8);
+}
+
+#keyscale {
+    width: 50vw;
+    position: absolute;
+    left: 40px;
+    bottom: 100px;
+}
+
+
+
+/* ---------------------------------------------------
+    SIDEBAR STYLE
+----------------------------------------------------- */
+#sidebar {
+    width: 300px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    z-index: 999;
+    background: #fff;
+    color: #3e3e3e;
+    transition: all 0.3s;
+    box-shadow: 1px 0 4px rgba(0, 0, 0, 0.1);
+}
+
+#sidebar.active {
+    margin-left: -250px;
+}
+
+#sidebar .sidebar-header {
+    padding: 20px;
+    background: #fff;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+    color: #EE2E24;
+}
+
+#sidebar ul.components {
+    padding: 20px 20px;
+}
+
+#sidebar ul p {
+    padding: 10px;
+    font-size: 20px;
+}
+
+#sidebar ul li a {
+    padding: 10px;
+    font-size: 1.1em;
+    display: block;
+}
+
+#sidebar ul li a:hover {
+    color: #a2a2a2;
+    background: #fff;
+}
+
+a[data-toggle="collapse"] {
+    position: relative;
+}
+
+a[aria-expanded="false"]::before, a[aria-expanded="true"]::before {
+    content: '\e259';
+    display: block;
+    position: absolute;
+    right: 20px;
+    font-family: 'Glyphicons Halflings';
+    font-size: 0.6em;
+}
+a[aria-expanded="true"]::before {
+    content: '\e260';
+}
+
+
+ul ul a {
+    font-size: 0.9em !important;
+    padding-left: 30px !important;
+}
+
+ul.CTAs {
+    padding: 20px;
+}
+
+ul.CTAs a {
+    text-align: center;
+    font-size: 0.9em !important;
+    display: block;
+    border-radius: 5px;
+    margin-bottom: 5px;
+}
+a.download {
+    background: #fff;
+    color: #5e5e5e;
+}
+a.article, a.article:hover {
+    background: #5e5e5e !important;
+    color: #fff !important;
+}
+
+textarea:focus{
+    outline:0;
+
+}
+input:focus {
+    outline: 0;
+}
+/* ---------------------------------------------------
+    CONTENT STYLE
+----------------------------------------------------- */
+#content {
+    width: calc(100% - 250px);
+    padding: 40px;
+    min-height: 100vh;
+    transition: all 0.3s;
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: white;
+}
+#content.active {
+    width: 100%;
+}
+
+
+/* ---------------------------------------------------
+    MEDIAQUERIES
+----------------------------------------------------- */
+@media (max-width: 768px) {
+    #sidebar {
+        margin-left: -250px;
+    }
+    #sidebar.active {
+        margin-left: 0;
+    }
+    #content {
+        width: 100%;
+    }
+    #content.active {
+        width: calc(100% - 250px);
+    }
+    #sidebarCollapse span {
+        display: none;
+    }
+}

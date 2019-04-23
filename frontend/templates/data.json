@@ -1,0 +1,10 @@
+[
+    {"id":"Spelling","score":35, "c":"#2278eb"},
+    {"id":"Grammar","score":53, "c":"#0092ff"},
+    {"id":"Reading Level","score":51, "c":"#00a9ff"},
+    {"id":"Number of Ads","score":60, "c":"#00beff"},
+    {"id":"Social Network Links","score":59, "c":"#00d1f8"},
+    {"id":"Number of Images","score":41, "c":"#00e2e1"},
+    {"id":"Cross-site Citations","score":59, "c":"#00f2c4"},
+    {"id":"Sentiment","score":52, "c":"#00ffa6"}
+]

@@ -1,14 +1,11 @@
 # Gingko
-BigCo 14 - SP 2019
+BigCo Team 14 - SP 2019
 
-Larger dataset in SQL format: https://drive.google.com/file/d/1ebdN6rQYocJof_cKpVyLPCq2DR729ekh/view?usp=sharing
+Our dataset in SQL format: https://drive.google.com/file/d/1ebdN6rQYocJof_cKpVyLPCq2DR729ekh/view?usp=sharing
 
-spell_checker.py    get_spell_score(html)
+## Feature Extractors
 
-reading_level.py    get_reading_level(html)
-
-yd_social.py    social_media_score(html)    citation_score(html_page)
-
+All the feature extractors can be found in `extractor_accelerated.py`.
 
 ## Text Extractor
 * API:
@@ -16,7 +13,7 @@ yd_social.py    social_media_score(html)    citation_score(html_page)
   * `te.getText()`
 * Parameters:
   `url`: string
-  `local`: default=True, for online sites, fill in with False.
+  `local`: `True` by default. For online sites, use `False` instead.
 
 ```
     # Online request example
@@ -29,22 +26,3 @@ yd_social.py    social_media_score(html)    citation_score(html_page)
     te = TextExtractor(dir)
     print(te.getText())
    ```
-
-## Plot Density
-* API:
-  * ```
-    from plot_density import *
-    plot_hist(data, hist=True, kde=False)
-    ```
-    
-## Sentimental Analysis
-* API:
-  * `sentiment_analysis(text, full_score=False)`
-* For tests, run `sentiment.py` directly or use
-  * ```
-    print('# ------------ Full sentiment analysis test ------------ #')
-    database_test_sentiment_analysis_full()
-
-    print('# -------- Single score sentiment analysis test -------- #')
-    database_test_sentiment_analysis()
-    ```

@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Search</title>
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans:300,600' rel='stylesheet' type='text/css'>
+  <script data-require="jquery@*" data-semver="2.0.3" src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <!-- pretty checkbox CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pretty-checkbox@3.0/dist/pretty-checkbox.min.css">
+
+  <!-- Bootstrap CSS CDN -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <!-- Our Custom CSS -->
+  <link rel="stylesheet" href="../static/css/style2.css">
+  <script src="https://d3js.org/d3.v4.min.js"></script>
+  <!-- Scrollbar Custom CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css">
+
+</head>
+<body>
+<div class="wrapper">
+  <!-- Sidebar Holder -->
+  <nav id="sidebar">
+    <div class="sidebar-header">
+      <h3>Gingko</h3>
+    </div>
+
+    <ul class="list-unstyled components">
+      <p>Sub Scores</p >
+
+      <li>
+        <a>
+          <div class="pretty p-default" onclick="display()">
+            <input id='Reading Level' type="checkbox" checked/>
+            <div class="state p-danger">
+              <label>Reading Level</label>
+            </div>
+          </div>
+        </a >
+      </li>
+
+      <li>
+        <a>
+          <div class="pretty p-default" onclick="display()">
+            <input id='Number of Ads' type="checkbox" checked/>
+            <div class="state p-danger">
+              <label>Number of Ads</label>
+            </div>
+          </div>
+        </a >
+      </li>
+
+      <li>
+        <a>
+          <div class="pretty p-default" onclick="display()">
+            <input id='Number of Images' type="checkbox" />
+            <div class="state p-danger">
+              <label>Number of Images</label>
+            </div>
+          </div>
+        </a >
+      </li>
+
+      <li>
+        <a>
+          <div class="pretty p-default" onclick="display()">
+            <input id='Social Network Links' type="checkbox" checked/>
+            <div class="state p-danger">
+              <label>Social Network Links</label>
+            </div>
+          </div>
+        </a >
+      </li>
+
+      <li>
+        <a>
+          <div class="pretty p-default" onclick="display()">
+            <input id='Cross-site Citations' type="checkbox" checked />
+            <div class="state p-danger">
+              <label>Cross-site Citations</label>
+            </div>
+          </div>
+        </a >
+      </li>
+
+      <li>
+        <a>
+          <div class="pretty p-default" onclick="display()">
+            <input id='Sentiment' type="checkbox" checked/>
+            <div class="state p-danger">
+              <label>Sentiment</label>
+            </div>
+          </div>
+        </a >
+      </li>
+    </ul>
+  </nav>
+
+  <!-- Page Content Holder -->
+  <div id="content">
+
+    <nav class="navbar navbar-default">
+      <form action="/search" class="searchBar" style="text-align: center" method='get'>
+        <input type="text" name="websiteAddress" aria-describedby="searchBoxAccessibleText" class="SearchBoxInput" data-test-id="SearchBoxInput" id="searchBar" value="">
+        <svg class="searchIcon" viewBox="0 0 24 24" aria-hidden="true" aria-label="" role="img">
+          <path d="M10.00,16.00 C6.69,16.00 4.00,13.31 4.00,10.00 C4.00,6.69 6.69,4.00 10.00,4.00 C13.31,4.00 16.00,6.69 16.00,10.00 C16.00,13.31 13.31,16.00 10.00,16.00 M23.12,18.88 L18.86,14.62 C19.59,13.24 20.00,11.67 20.00,10.00 C20.00,4.48 15.52,0.00 10.00,0.00 C4.48,0.00 0.00,4.48 0.00,10.00 C0.00,15.52 4.48,20.00 10.00,20.00 C11.67,20.00 13.24,19.59 14.62,18.86 L18.88,23.12 C20.05,24.29 21.95,24.29 23.12,23.12 C24.29,21.95 24.29,20.05 23.12,18.88" data-reactid="43"></path>
+        </svg>
+      </form>
+    </nav>
+    <div class="main">
+      <div class="container landing-page">
+        <div class="row">
+          <div class="col-lg-12">
+            <h2 >Credibility Score </h2>
+            <h1 style="margin-bottom: 30px; font-weight: bold; color: #feb700;" id="credibility score">{{credibility}}</h1>
+          </div>
+        </div>
+
+        <div class="row">
+
+          <div class="col-lg-12" id="age_pie">
+            <div id="bar1" style="margin: auto;"></div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+<!-- jQuery CDN -->
+<script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+<!-- Bootstrap Js CDN -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<!-- jQuery Custom Scroller CDN -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min.js"></script>
+<script>
+
+  function searchCredibility(){
+      $.ajax(
+            {
+              type : 'GET',
+              url : "/search",
+              data: {'websiteAddress': $('#searchBar').val()},
+              success : function(data){
+                console.log(data);
+
+              }/*success : function() {}*/
+            });/*$.ajax*/
+    }
+
+  let fullSet = [
+    {"id":"Reading Level","score":51},
+    {"id":"Number of Ads","score":60},
+    {"id":"Social Network Links","score":59},
+    {"id":"Number of Images","score":41},
+    {"id":"Cross-site Citations","score":59},
+    {"id":"Sentiment","score":52}
+  ];
+
+
+
+  console.log(JSON.parse('{{ data|safe }}'));
+  window.onload = display();
+
+  function display() {
+    if ("{{error}}" != null) {
+      document.getElementById("credibility score").innerHTML = 56;
+    }
+
+    $("#bar1").children().remove();
+    let arr = JSON.parse('{{ data|safe }}');
+
+    let data = [];
+    for (const item of arr) {
+      if (item.id == "Credibility") {
+        document.getElementById("credibility score").innerHTML = item.score;
+        continue;
+      }
+      if (document.getElementById(item.id).checked) {
+        data.push(item);
+      }
+    }
+    if (data.length == 0) {
+      for (const item of fullSet)
+        if (document.getElementById(item.id).checked) data.push(item);
+    }
+
+    const barheight = 60;
+    let width = 900;
+    let height = data.length * barheight;
+    margin = {top: 0, right: 20, bottom: 30, left: 80};
+    let svg = d3.select("#bar1").append("svg")
+            .attr("width", width + margin.left + margin.right)
+            .attr("height", height + margin.top + margin.bottom)
+            .append("g")
+            .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+  
+    let tooltip = d3.select("body").append("div").attr("class", "tooltip");
+    let x = d3.scaleLinear().range([0, width]);
+    let y = d3.scaleBand().range([height, 0]);
+    let g = svg.append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+  
+    // d3.json(fullSet, function(error, data) {
+  	//     if (error) throw error;
+
+
+    data.sort(function(a, b) { return a.score - b.score; });
+    x.domain([0, d3.max(data, function(d) { return d.score; })]);
+    y.domain(data.map(function(d) { return d.id; })).padding(0.3);
+    let colorScale2 = d3.scaleLinear().domain([0, data.length-1]).range(['lightblue','lightgreen']);
+
+    // DATA BIND
+    let key = g.selectAll('text.key').data(data);
+    key.enter()
+            .append("text")
+            .attr("class","key")
+            .attr("x", -20)
+            .attr("y", function(d,i) {return y(d.id) })
+            .attr('dy',30).attr("text-anchor", "end")
+            .style('font-family', 'Lato')
+            .style('font-weight', 'bold')
+            .style('font-size', "15px")
+            .text(function(d) { return d.id });
+
+
+        g.selectAll(".bar")
+                .data(data)
+                .enter().append("rect")
+                .attr("class", "bar")
+                .style("fill", function (d, i) {return colorScale2(i);})
+                .attr("x", 0)
+                .attr("height", y.bandwidth())
+                .attr("y", function(d) { return y(d.id); })
+                .attr("width", function(d) { return x(d.score); })
+                 .on("mousemove", function(d){
+                           tooltip
+                                   .style("left", (d3.event.pageX+12) + "px")
+                                   .style("top", (d3.event.pageY-10) + "px")
+                                   .style("opacity", 1)
+                                   .style("font-family", 'Lato')
+                                   .style('font-size', "15px")
+                                   .style("display", "inline-block")
+                                   .html("<div class='explanation'>score: " + d.score+ "</div>");
+                 })
+                .on("mouseout",function(){tooltip.style("display","none");});
+    // });
+  }
+
+
+</script>
+<script type="text/javascript">
+  $(document).ready(function () {
+    $("#sidebar").mCustomScrollbar({
+      theme: "minimal"
+    });
+
+    $('#sidebarCollapse').on('click', function () {
+      $('#sidebar, #content').toggleClass('active');
+      $('.collapse.in').toggleClass('in');
+      $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+    });
+  });
+</script>
+</body>
+</html>
