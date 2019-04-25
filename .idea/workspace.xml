@@ -2,19 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="67302d5e-60d1-4744-b7c0-aff056ea83f9" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/Gingko.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Gingko.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/app.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/api.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/crawler.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/extractor.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/instructions.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/models/final_model.pickle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/preprocess.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/url_cache/05e9df126f32fdce8f400ae36d7b093e8b7d9b84.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/url_cache/0e1e5a12d9cb4a53ea33df04c4bf22530a1d9ae4.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/url_cache/1541ecf423fb47e31a80ff8a553e520abe4b5f76.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/url_cache/8c91a1b5ce25ed88b1424fca1bb766bcb280f665.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/url_cache/a49c008f4138892c9f361cf22695d3430dda2613.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/server/api.py" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/server/api.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/server/extractor.py" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/server/extractor.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/server/preprocess.py" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/server/preprocess.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -28,37 +21,66 @@
   <component name="CreatePatchCommitExecutor">
     <option name="PATCH_PATH" value="" />
   </component>
+  <component name="DockManager">
+    <window id="1">
+      <content type="file-editors">
+        <state>
+          <leaf>
+            <file pinned="false" current-in-tab="true">
+              <entry file="file://$PROJECT_DIR$/../../../CS5433/HW3/5433_hw3_student/ERC20/utils/pyethereum_test_utils.py">
+                <provider selected="true" editor-type-id="text-editor">
+                  <state relative-caret-position="1694">
+                    <caret line="77" column="4" selection-start-line="77" selection-start-column="4" selection-end-line="77" selection-end-column="4" />
+                    <folding>
+                      <element signature="e#50#83#0" expanded="true" />
+                    </folding>
+                  </state>
+                </provider>
+              </entry>
+            </file>
+          </leaf>
+        </state>
+      </content>
+    </window>
+  </component>
   <component name="FUSProjectUsageTrigger">
     <session id="-125849989">
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="py" value="5" />
+          <entry key="py" value="8" />
+          <entry key="sol" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="Python" value="5" />
+          <entry key="PLAIN_TEXT" value="2" />
+          <entry key="Python" value="8" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="py" value="121" />
+          <entry key="py" value="482" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Python" value="121" />
+          <entry key="Python" value="482" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.lifecycle.project">
+        <counts>
+          <entry key="project.closed" value="1" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/frontend/app.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="506">
-              <caret line="23" column="6" selection-start-line="23" selection-start-column="6" selection-end-line="23" selection-end-column="6" />
+            <state relative-caret-position="484">
+              <caret line="22" selection-start-line="22" selection-end-line="22" />
               <folding>
                 <element signature="e#0#77#0" expanded="true" />
               </folding>
@@ -66,13 +88,14 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/frontend/server/api.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="280">
-              <caret line="35" column="50" selection-start-line="35" selection-start-column="50" selection-end-line="35" selection-end-column="50" />
+            <state relative-caret-position="528">
+              <caret line="76" column="21" selection-start-line="75" selection-start-column="9" selection-end-line="76" selection-end-column="21" />
               <folding>
                 <element signature="e#0#13#0" expanded="true" />
+                <marker date="1555091027267" expanded="true" signature="569:725" ph="..." />
               </folding>
             </state>
           </provider>
@@ -93,8 +116,11 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/frontend/server/extractor.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1768">
-              <caret line="4" column="5" selection-start-line="4" selection-start-column="5" selection-end-line="4" selection-end-column="5" />
+            <state relative-caret-position="594">
+              <caret line="131" selection-start-line="131" selection-end-line="131" />
+              <folding>
+                <element signature="e#0#9#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -102,8 +128,11 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/frontend/server/preprocess.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="44">
-              <caret line="2" column="12" selection-start-line="2" selection-start-column="12" selection-end-line="2" selection-end-column="12" />
+            <state relative-caret-position="198">
+              <caret line="9" selection-start-line="9" selection-end-line="9" />
+              <folding>
+                <element signature="e#0#18#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -120,8 +149,9 @@
         <option value="$PROJECT_DIR$/counter.py" />
         <option value="$PROJECT_DIR$/crawler.py" />
         <option value="$PROJECT_DIR$/frontend/app.py" />
-        <option value="$PROJECT_DIR$/frontend/server/preprocess.py" />
         <option value="$PROJECT_DIR$/frontend/server/crawler.py" />
+        <option value="$PROJECT_DIR$/frontend/server/extractor.py" />
+        <option value="$PROJECT_DIR$/frontend/server/preprocess.py" />
         <option value="$PROJECT_DIR$/frontend/server/api.py" />
       </list>
     </option>
@@ -360,20 +390,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/server/preprocess.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="44">
-          <caret line="2" column="12" selection-start-line="2" selection-start-column="12" selection-end-line="2" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/server/extractor.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1768">
-          <caret line="4" column="5" selection-start-line="4" selection-start-column="5" selection-end-line="4" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/frontend/server/crawler.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="132">
@@ -384,22 +400,56 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/app.py">
+    <entry file="file://$PROJECT_DIR$/frontend/server/preprocess.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="506">
-          <caret line="23" column="6" selection-start-line="23" selection-start-column="6" selection-end-line="23" selection-end-column="6" />
+        <state relative-caret-position="198">
+          <caret line="9" selection-start-line="9" selection-end-line="9" />
           <folding>
-            <element signature="e#0#77#0" expanded="true" />
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/server/extractor.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="594">
+          <caret line="131" selection-start-line="131" selection-end-line="131" />
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/frontend/server/api.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="280">
-          <caret line="35" column="50" selection-start-line="35" selection-start-column="50" selection-end-line="35" selection-end-column="50" />
+        <state relative-caret-position="528">
+          <caret line="76" column="21" selection-start-line="75" selection-start-column="9" selection-end-line="76" selection-end-column="21" />
           <folding>
             <element signature="e#0#13#0" expanded="true" />
+            <marker date="1555091027267" expanded="true" signature="569:725" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../../CS5433/HW3/5433_hw3_student/ERC20/ERC20.sol">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../../CS5433/HW3/5433_hw3_student/ERC20/utils/pyethereum_test_utils.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1694">
+          <caret line="77" column="4" selection-start-line="77" selection-start-column="4" selection-end-line="77" selection-end-column="4" />
+          <folding>
+            <element signature="e#50#83#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/app.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="484">
+          <caret line="22" selection-start-line="22" selection-end-line="22" />
+          <folding>
+            <element signature="e#0#77#0" expanded="true" />
           </folding>
         </state>
       </provider>

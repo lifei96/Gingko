@@ -11,6 +11,7 @@ def get_img_number(html):
     imgs = soup.find_all('img')
     return len(imgs)
 
+
 def get_ads_number(html):
     soup = BeautifulSoup(html, 'html.parser')
     imgs = soup.find_all('img')
@@ -19,6 +20,7 @@ def get_ads_number(html):
         if img.has_attr("src") and "ads" in img["src"] :
             ads_counter += 1
     return ads_counter
+
 
 def get_text(html):
     '''Extracts text from html.'''
@@ -29,6 +31,7 @@ def get_text(html):
     h2t.ignore_images = True
     h2t.ignore_emphasis = True
     return h2t.handle(html)
+
 
 def get_reading_level(html):
     '''
@@ -50,6 +53,7 @@ def get_social_media_score_links(links):
 
     return social_media_links
 
+
 def get_links(html_page):
     soup = BeautifulSoup(html_page)
     links = set()
@@ -60,6 +64,7 @@ def get_links(html_page):
 
     return links
 
+
 def secure_link_ratio(links):
     count = 0
     for link in links:
@@ -68,6 +73,7 @@ def secure_link_ratio(links):
     if len(links) == 0:
         return 0.0
     return float(count/len(links))
+
 
 def good_reference_ratio(links):
     good_references = ['nytimes.com', 'wikipedia.org', 'news.yahoo.com', 'news.google.com', 'huffpost.com', 'cnn.com', 'foxnews.com', 'nbcnews.com', 'dailymail.co.uk', 'washingtonpost.com', 'theguardian.com', 'wsj.com', 'abcnews.go.com', 'bbc.com', 'usatoday.com', 'latimes.com']
@@ -78,6 +84,7 @@ def good_reference_ratio(links):
     if len(links) == 0:
         return 0.0
     return float(count / len(links))
+
 
 def social_media_score(html_page):
     """
@@ -92,6 +99,7 @@ def social_media_score(html_page):
     social_media_links = get_social_media_score_links(links)
     # print(social_media_links)
     return round(float(len(social_media_links)/3), 2)
+
 
 def citation_score(html_page):
     """
@@ -111,6 +119,7 @@ def citation_score(html_page):
     else:
         ratio = 1.0 if secure_ratio + ref_ratio > 1.0 else ref_ratio + secure_ratio
         return round(ratio, 2)
+
 
 def sentiment_analysis(text, full_score=False):
     sia = SIA()
