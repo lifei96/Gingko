@@ -14,6 +14,6 @@ def is_valid_url(url):
 	else:
 		return True
 
-file = open("./html_samples/fake/Kentucky Representative Kills Himself.htm", mode='r')
-html = file.read()
-print(is_news(html))
+#file = open("./html_samples/fake/Kentucky Representative Kills Himself.htm", mode='r')
+#html = file.read()
+#print(is_news(html))
