@@ -6,14 +6,14 @@ from bs4 import BeautifulSoup
 from nltk.sentiment.vader import SentimentIntensityAnalyzer as SIA
 
 
-def get_img_number(html):
-    soup = BeautifulSoup(html, 'html.parser')
+def get_img_number(soup):
+    # soup = BeautifulSoup(html, 'html.parser')
     imgs = soup.find_all('img')
     return len(imgs)
 
 
-def get_ads_number(html):
-    soup = BeautifulSoup(html, 'html.parser')
+def get_ads_number(soup):
+    # soup = BeautifulSoup(html, 'html.parser')
     imgs = soup.find_all('img')
     ads_counter = 0
     for img in imgs:
@@ -54,8 +54,8 @@ def get_social_media_score_links(links):
     return social_media_links
 
 
-def get_links(html_page):
-    soup = BeautifulSoup(html_page)
+def get_links(soup):
+    # soup = BeautifulSoup(html_page)
     links = set()
     for link in soup.findAll('a', attrs={'href': re.compile("^http://")}):
         links.add(link.get('href'))
@@ -86,32 +86,32 @@ def good_reference_ratio(links):
     return float(count / len(links))
 
 
-def social_media_score(html_page):
+def social_media_score(soup):
     """
     Crawl links to social media of HTML page and assess the credibility of the website
 
     Args:
-        html_page (str): stringfied html page.
+        soup: bs4.
     Returns:
         a float from 0-1 indicating the credibility score based on social media profile
     """
-    links = get_links(html_page)
+    links = get_links(soup)
     social_media_links = get_social_media_score_links(links)
     # print(social_media_links)
     return round(float(len(social_media_links)/3), 2)
 
 
-def citation_score(html_page):
+def citation_score(soup):
     """
     Crawl external citations of HTML page
     Assess security of links and compare against a manually curated credible news website set
 
     Args:
-        html_page (str): stringfied html page.
+        soup: bs4.
     Returns:
         a float from 0-1 indicating the credibility score based on citation security and credibility
     """
-    links = get_links(html_page)
+    links = get_links(soup)
     secure_ratio = secure_link_ratio(links)
     ref_ratio = good_reference_ratio(links)
     if ref_ratio == 0.0:
